@@ -116,9 +116,9 @@ This is where you build your AI. LSTM, CNN, Transformers... pick your fighter!
 The AI tells you what happens next. Up? Down? Sideways? See the probability and confidence.
 
 ![Results Dashboard with Predictions](./Images/Screenshot%20from%202025-11-30%2017-29-45.png)
-````
 
 
+---
 
 ## 🔍 The Deep Dive (Details Matter)
 
