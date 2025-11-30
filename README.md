@@ -54,11 +54,15 @@ We don't guess. We analyze. Here is how we cook the data:
 
 ````carousel
 **1. The Source (Data Source)**
+
 We grab data from everywhere. MT5, CSVs, Databases. We even mix them! Want to see if Gold moves Bitcoin? We can do that.
 
 ![Data Source Selection](./Images/Screenshot%20from%202025-11-30%2017-26-33.png)
 
+<!-- slide -->
+
 **2. The Tech (Technical Analysis)**
+
 We calculate over 50 indicators. RSI, MACD, Bollinger Bands... the works. But we also check the *diffs* (changes). That's the secret sauce.
 
 ![Technical Analysis Configuration](./Images/Screenshot%20from%202025-11-30%2017-27-41.png)
@@ -67,36 +71,48 @@ We calculate over 50 indicators. RSI, MACD, Bollinger Bands... the works. But we
 <!-- slide -->
 
 **3. The Zones (SNR Analysis)**
+
 Where will the price bounce? We find the "floors" (Support) and "ceilings" (Resistance). We know where the price is likely to turn.
 
 ![SNR Signal Analysis](./Images/Screenshot%20from%202025-11-30%2017-28-16.png)
 
+<!-- slide -->
+
 **4. The Stars (Astronomical)**
+
 Yes, really! Moon phases, planets... sometimes the market moves with the stars. We track it all.
 
 <!-- slide -->
 
 **5. The Vibe (News Sentiment)**
+
 What is Twitter saying? What is the news saying? We read it all to know if the market is happy or scared.
 
+<!-- slide -->
+
 **6. The Check (Feature Review)**
+
 Quality control. We make sure the data is clean before the AI touches it.
 
 <!-- slide -->
 
 **7. The Prep (ML Preparation)**
+
 We organize the data into neat little packages for the AI brain to learn from.
 
+<!-- slide -->
+
 **8. The Brain (Model Selection)**
+
 This is where you build your AI. LSTM, CNN, Transformers... pick your fighter!
 
 ![Model Builder - Architecture Selection](./Images/Screenshot%20from%202025-11-30%2017-28-39.png)
 ![Model Training Configuration](./Images/Screenshot%20from%202025-11-30%2017-29-08.png)
 
-
 <!-- slide -->
 
 **9. The Future (Results)**
+
 The AI tells you what happens next. Up? Down? Sideways? See the probability and confidence.
 
 ![Results Dashboard with Predictions](./Images/Screenshot%20from%202025-11-30%2017-29-45.png)
