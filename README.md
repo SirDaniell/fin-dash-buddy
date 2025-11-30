@@ -52,7 +52,7 @@ Make moves with confidence. No guessing. Just facts.
 
 We don't guess. We analyze. Here is how we cook the data:
 
-````carousel
+
 **1. The Source (Data Source)**
 
 We grab data from everywhere. MT5, CSVs, Databases. We even mix them! Want to see if Gold moves Bitcoin? We can do that.
@@ -118,7 +118,7 @@ The AI tells you what happens next. Up? Down? Sideways? See the probability and 
 ![Results Dashboard with Predictions](./Images/Screenshot%20from%202025-11-30%2017-29-45.png)
 ````
 
----
+
 
 ## 🔍 The Deep Dive (Details Matter)
 
