@@ -927,71 +927,6 @@ Then load it in FinDashBuddy:
 
 ---
 
-## 🏁 Quick Start
-
-### **1. Install Dependencies**
-
-**Frontend:**
-```bash
-cd Frontend && npm install
-```
-
-**Backend:**
-```bash
-cd Backend && pip install -r requirements.txt
-```
-
-**ServerBackend:**
-```bash
-cd ServerBackend && pip install -r requirements.txt
-```
-
-### **2. Configure Environment**
-
-Create `.env` files in each directory:
-
-**Backend/.env:**
-```env
-POSTGRES_DB=findashbuddy
-POSTGRES_USER=findash
-POSTGRES_PASSWORD=changeme
-REDIS_PASSWORD=changeme
-MT5_LOGIN=your_mt5_login
-MT5_PASSWORD=your_mt5_password
-MT5_SERVER=your_mt5_server
-```
-
-**ServerBackend/.env:**
-```env
-WEB3_PROVIDER_URL=https://eth-sepolia.g.alchemy.com/v2/YOUR_API_KEY
-SECRET_KEY=your_secret_key_here
-```
-
-### **3. Run with Docker**
-
-```bash
-# Build all services
-docker-compose build
-
-# Start all services
-docker-compose up -d
-
-# Check status
-docker-compose ps
-```
-
-### **4. Access the App**
-
-Open your browser and visit:
-```
-http://localhost
-```
-
-**Default Credentials:**
-- Username: `admin`
-- Password: `admin123`
-
----
 
 ## 📖 Documentation
 
@@ -1013,7 +948,8 @@ A massive thank you to my digital junior devs:
 * **Gemini** — My structured thinker
 * **:D** — For vibes
 
-You all helped shape this.
+You all helped shape this!
+You are welcome for contributorsip , relax as I set up the pipeline
 
 ---
 
@@ -1061,10 +997,3 @@ If FinDashBuddy helps you trade smarter, give it a ⭐ on GitHub!
 - [ ] Educational platform
 
 ---
-
-**Questions? Issues? Ideas?**  
-Open an issue on GitHub or join our Discord community!
-
-**Discord:** [Join Here](https://discord.gg/findashbuddy)  
-**Twitter:** [@FinDashBuddy](https://twitter.com/findashbuddy)  
-**Email:** support@findashbuddy.com
