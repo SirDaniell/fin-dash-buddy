@@ -3,18 +3,35 @@
 > **"Form ni gani? Twende kazi!
 
 " (What's the plan? Let's work!)**  
-> **This is the story of how I turned four years of chaos, 47 Jupyter notebooks, and countless blown accounts into the trading partner I always wished existed.**
+> **This is the story of how I turned years of chaos into the trading partner I always wished existed.**
 
 > [!CAUTION]
 > **UNDER DEVELOPMENT: Still polishing, still fixing, still building!** 🚧
 
 ---
 
+## 🚀 Beyond a Trading Tool: The FinDash Buddy Ecosystem
+
+While FinDash Buddy is a powerful, standalone AI-powered trading laboratory, it is also the gateway to a revolutionary financial ecosystem powered by the **BESHA** utility token. This project's vision extends far beyond charts and models to create a community-owned, decentralized economy.
+
+**BESHA ("PESA" in Swahili)** is founded on three core principles:
+
+1.  **Reputation-First Economy**: Your on-chain reputation matters more than your wallet size. Good actors are rewarded, while bad actors are publicly and permanently flagged.
+2.  **Real Utility from Day One**: BESHA isn't a speculative asset; it's the required currency for AI model access, data contributions, peer-to-peer commerce, and earning rewards.
+3.  **Community Ownership**: The ecosystem is designed to share 70% of platform revenues back to the token holders, contributors, and operators who create its value.
+
+This ecosystem is comprised of two main applications:
+*   **FinDash Buddy**: The AI trading laboratory detailed in this README.
+*   **Dumo**: A social finance "Chat-app" for messenger/whatsapp  type messaging and peer-to-peer commerce, group savings, and more.
+
+To learn more, read the full [**BESHA Introduction & Whitepaper**](./BESHA_INTRODUCTION.md).
+---
+
 ## 👋 Hey! I'm Daniel — And This Is the Tool I Built for Myself (and Now for You)
 
-For years, I was that guy drowning in notebooks, CSVs, and half-baked models. One notebook for Gold, another for BTC, another for NAS100… same code, just copy-paste. I created and trained accurate models that I lost track of. Every model demanded its own environment and my laptop looked like a data crime scene.
+I have spent over 10 years learning and researching for Machine learning and finance, I was that guy drowning in notebooks, CSVs, and half-baked models. One notebook for Gold, another for BTC, another for NAS100… same code, just copy-paste. I created and trained accurate models that I lost track of. Every model demanded its own environment and my laptop looked like a data crime scene.
 
-I believe in **data for evidence** with repeatable experiments/measurements. I needed to keep my models in one environment and build a city around them.
+I believe in **data for evidence** with repeatable experiments/measurements,  this drove the need to have anenvironment where I would create , train and deploy this models.  
 
 **"And here we are!"**
 
@@ -27,22 +44,92 @@ That lab became **FinDash Buddy**.
 
 ---
 
-## 🎯 Why I Built FinDash Buddy
+## 🎯 Why I'm Building FinDash Buddy
 
-Very many reasons, but the main ones:
+Trading isn't just about clicking buttons; it's about being sure of your **next step**. For me, building FinDash Buddy was about moving from guesswork to **evidence-based confidence**. I wanted a system where data doesn't just sit in the background—it actually backs up every reason for entering a trade.
 
-* Training an LSTM on Gold, then starting from zero for EURUSD
-* Paying expensive subscriptions when I could build 10x better tools myself
-* Seeing brilliant open-source models (that I had built) nobody uses because there's no way to plug them into real trading
-* Switching between 15 apps to understand one market move
+Through years of backtesting, I’ve learned a critical lesson: most market situations are explainable with data. When you have that data, you can formulate hypotheses that either stand or fall. I didn't just want a "black box" model; I wanted to understand the *reasoning* behind a signal—whether it's from a technical system or a deep learning model.
+
+The reasons for building this are endless, but here are the ones that kept me up at night:
+
+*   **Breaking the Cycle**: I was tired of training an LSTM on Gold, only to have to start from zero for EURUSD. I needed a factory that could scale experiments efficiently.
+*   **Democratizing Power**: Make Findash available to all users?
+*   **From Lab to Live**: I've seen brilliant open-source models (some of which I built) sit idle because there was no easy way to plug them into a real trading environment.
+*   **Focus over Chaos**: I was switching between 15 different apps just to understand a single market move. I needed one "Command Center."
 
 So I asked myself:
-
 **"What if I gave every trader — coder or not — the same firepower I designed for myself?"**
 
-That became the soul of FinDash Buddy.
+That question became the soul of FinDash Buddy.
+
+> [!NOTE]
+> You really should read the full [**BESHA Introduction & Whitepaper**](./BESHA_INTRODUCTION.md) to understand the larger vision.
 
 ---
+## 🎯 So What is Findash ?
+
+FinDash Buddy is your advanced **AI-Powered Trading Laboratory**, designed to bridge the gap between complex quantitative analysis and everyday trading. It's not just a dashboard; it's a unified ecosystem where you can discover, analyze, and automate your trading strategies using state-of-the-art AI.
+
+### 📊 Intelligent Dashboard Metrics
+The dashboard doesn't just show you numbers; it gives you **context**. Behind every symbol, Findash calculates real-time "Smart Metrics":
+- **Price & Change**: Real-time tracking of market value and movement.
+- **Volatility**: Measures the average price range as a percentage, helping you gauge risk instantly.
+- **Speed**: The velocity of price movement—identifying when the market is "accelerating."
+- **Direction**: A clear "Bullish" or "Bearish" designation based on momentum and trend analysis.
+- **Regime**: Tells you if the market is currently **Stable** or **Volatile**, allowing you to adjust your strategy accordingly.
+- **Multi-Timeframe Alignment**: See all the above across M1, M5, H1, H4, and D1 simultaneously to ensure your trade has "consensus" across the board.
+
+### 🤖 The Agentic Framework: Hire Your AI Staff
+In Findash, you don't just watch the market—you **hire agents** to do it for you. 
+- **Easy Creation**: Use the **Create Agent** to "hire" an agent for any asset. 
+- **Customize your Agent**: Give your agent ML models for context
+- **Custom Instructions**: Give your agent a "Mission"—e.g., *"Notify me when RSI is oversold on 15m but the daily trend is bullish."*
+- **Bounded Autonomy**: Your agents operate 24/7 within the parameters you set, monitoring live streams and executing their "Mission" instructions autonomously.
+- **Deployment**: Once "hired," your agents live in the **Side Panel**, constantly scanning, thinking, and ready to alert you or take action.
+
+### 🛠️ Agentic Toolbelt
+Your agents aren't just reading text; they have access to powerful tools to make better decisions:
+- **🌐 Web Search**: Agents can search the live internet for breaking news and real-time market sentiment.
+- **📚 RAG Knowledge Base**: Access to a massive financial database for deep historical context.
+- **🔍 SQL Querying**: Secure, direct access to the trading database to verify patterns.
+- **🧠 Model Inference**: The ability to run your own **Trained ML Models** to predict future price action.
+
+### 🏭 The "Money Factory" Training Pipeline
+Findash includes a professional-grade **Analysis Pipeline** that takes you from raw data to a deployed AI agent:
+1. **Data Source**: Load MT5 or CSV data.
+2. **Technical & SNR**: Auto-calculate 50+ indicators and Support/Resistance zones.
+3. **Cosmic & Sentiment**: Add Astronomical cycles and News sentiment into the mix.
+4. **Feature Review**: Use advanced statistics to keep only the features that actually work.
+5. **ML Preparation**: Build "ML-ready" sequences for neural networks.
+6. **Model Selection**: Choose from **LSTM, TCN, Transformers**, or **CNN** architectures.
+7. **Model Training** : Now train your model  with the training / test data we just created in the ml step
+8. **Deployment**: Once trained, your model can be "plugged in" to your AI Agents for live execution.
+
+### ✨ Why Findash Wins (Our Strengths)
+- **Unified Lab**: No more jumping between 10 apps. Charts, Indicators, ML Training, and AI Agents all live in one house.
+- **No-Code AI**: You can build and train some of the world's most advanced Deep Learning models without writing a single line of code.
+- **Evidence-Based Trading**: Stop guessing. Every decision is backed by the 9-step factory and measurable data.
+- **Proactive Intelligence**: Your agents don't wait for you to open the app; they are working for you while you sleep.
+
+
+### 🧠 AI & LLM Architecture: Local-First Intelligence
+Findash is built on a **Local-First** AI philosophy. While we support major cloud providers (OpenAI, Anthropic, Gemini), the heart of the platform is the **Ollama Integration**.
+- **Privacy & Speed**: By running models locally (like Llama 3.1 or Phi-3), your trading data never leaves your machine, and inference happen with zero network latency.
+- **Provider Pattern**: The `AIManager` backend uses a modular provider pattern, allowing you to hot-swap between local Ollama instances and cloud APIs without changing your agent's instructions.
+
+### 🌉 The MT5 Bridge: Decentralized Data Gateway
+To ensure Findash is accessible and robust, I built a custom **MT5-Bridge**. This is a high-performance Wine-based wrapper that exposes the MetaTrader 5 terminal as a clean, modern Flask API.
+- **Why MetaTrader 5?**: 
+    - **Total Accessibility**: MT5 is free and available to any trader with a brokerage account worldwide.
+    - **Decentralization by Design**: Since MT5 supports thousands of brokers, Findash is not tied to a single liquidity provider. If one broker goes down, you simply switch your bridge to another—one failure won't affect the entire platform.
+    - **Reliability**: We wrap the native MQL5 environment in a Pythonic API, allowing for stable, "hands-off" data streaming and trade execution.
+
+### 💻 Python & JavaScript to MQL5: Bridging the Gap
+One of the biggest hurdles in trading is the "MQL5 tax"—the requirement to learn a specific, C++ like language just to test a simple idea. Findash solves this by bridging the worlds of Web and Data Science:
+- **Unified Logic**: Through the **Code Window**, you can write your trading logic in **Python or JavaScript**. 
+- **The MQL5 "Bypass"**: You get the power of MQL5's market access without ever having to touch a `.mq5` file. Your Python/JS code interacts with the bridge to execute trades, calculate custom indicators, and run ML inferences with ease.
+- **Rapid Prototyping**: Go from a data science experiment in a notebook to a live-running strategy in minutes.
+
 
 ## 🏭 The 9-Step "Money Factory" - Deep Dive
 
@@ -799,6 +886,53 @@ Then load it in FinDashBuddy:
 
 ## 🌍 The Economy (Web3 Layer)
 
+### **1. Automatic Wallet Creation** 🪄
+**"No more MetaMask headaches for new users."**
+
+When you sign up, FinDash Buddy automatically creates a secure Ethereum wallet for you.
+
+**How it works:**
+1. **Instant Creation:** As soon as you register, a unique wallet address is generated.
+2. **Invisible Security:** Your private key is encrypted with your password and stored securely. We never see your raw key.
+3. **Identity on Chain:** A digital identity is created for you on the blockchain (UnifiedIdentity contract).
+4. **Welcome Gift:** You automatically receive an airdrop of BESHA tokens to get started.
+
+**What you can do with it:**
+- **Earn Rewards:** Get paid for contributing data or models.
+- **Pay for Services:** Rent premium models or buy datasets.
+- **Vote:** Participate in DAO governance.
+- **Staking:** Stake tokens to earn interest.
+
+### **2. Device Binding & Security** 🛡️
+**"Your account, locked to your devices."**
+
+We use **Device Binding** to ensure only *you* can access your account.
+
+**How it works:**
+1. **Fingerprinting:** When you log in, we take a "fingerprint" of your device (browser, OS, screen size, etc.).
+2. **Binding:** This fingerprint is linked to your account.
+3. **Verification:** If someone tries to log in from a new, unknown device, we block them or ask for extra verification.
+
+**Why this matters:**
+- **Anti-Theft:** Even if a hacker steals your password, they can't log in from their computer.
+- **Alerts:** You get notified immediately if a new device tries to access your account.
+- **Control:** You can manage your trusted devices in Settings.
+
+### **3. Setup Wizard** 🚀
+**"Get started in seconds."**
+
+The new **Setup Wizard** guides you through:
+1. **Account Creation:** Username, email, and password.
+2. **Wallet Setup:** Automatic generation (you just watch!).
+3. **Profile:** Add your name and phone (optional).
+4. **Preferences:** Choose your theme (Dark/Light) and notification settings.
+5. **Exchange Keys:** Connect Binance or Coinbase (encrypted & optional).
+
+**Simple Language Summary:**
+- **We handle the tech:** You don't need to know about keys, gas, or contracts.
+- **You own the value:** Your tokens and reputation are yours forever.
+- **Safety first:** Bank-grade security with device checks and encryption.
+
 ### 🏦 Wallet & Treasury
 - Manage BESHA tokens (platform currency)
 - Track earnings from model rentals
@@ -970,17 +1104,270 @@ If FinDashBuddy helps you trade smarter, give it a ⭐ on GitHub!
 
 ---
 
+## � Advanced Trading Features - Portfolio & Risk Management
+
+FinDash Buddy now includes comprehensive **Screener** and **Portfolio Management** capabilities, transforming it from an analysis tool into a complete trading platform.
+
+### **🎯 Stock Screener - Smart Asset Discovery**
+
+**Find the best opportunities across global markets**
+
+**Key Features:**
+- **Multi-Asset Support:** Stocks, Forex, Crypto, Commodities, Indices
+- **Real-Time Scanning:** Live market data with instant updates
+- **Custom Filters:** Build complex screening criteria
+- **Technical Analysis:** RSI, MACD, Bollinger Bands, Volume analysis
+- **Fundamental Filters:** Market Cap, P/E Ratio, Dividend Yield
+- **AI-Powered Ranking:** Machine learning-based opportunity scoring
+
+**Screening Categories:**
+- **Momentum Stocks:** High volume, strong price action
+- **Value Plays:** Undervalued assets by fundamentals
+- **Breakout Candidates:** Assets breaking key resistance levels
+- **Reversal Setups:** Potential bottom formations
+- **High Volatility:** For options or swing trading
+
+**Example Use Cases:**
+- Find oversold stocks with RSI < 30
+- Discover high-volume breakouts
+- Identify dividend aristocrats with strong fundamentals
+- Scan for crypto with positive momentum
+
+---
+
+### **📊 Portfolio Management - Professional Risk Control**
+
+**Complete portfolio analytics and optimization**
+
+**Core Components:**
+
+#### **1. Risk Analysis Engine**
+- **VaR Calculation:** Value at Risk (95%, 99% confidence)
+- **CVaR (Expected Shortfall):** Conditional Value at Risk
+- **Stress Testing:** Historical scenario analysis
+- **Correlation Matrix:** Asset relationship analysis
+- **Volatility Analysis:** Rolling volatility metrics
+- **Drawdown Analysis:** Maximum drawdown tracking
+
+#### **2. Performance Analytics**
+- **Sharpe Ratio:** Risk-adjusted returns
+- **Sortino Ratio:** Downside risk measurement
+- **Win Rate:** Trade success percentage
+- **Profit Factor:** Gross profit / Gross loss
+- **Calmar Ratio:** Annual return / Max drawdown
+- **Alpha/Beta:** Market-relative performance
+
+#### **3. Portfolio Optimization**
+- **Equal Weight:** Simple diversification
+- **Risk Parity:** Equal risk contribution
+- **Momentum-Based:** Trend-following allocation
+- **Minimum Variance:** Lowest volatility portfolio
+- **Black-Litterman:** Views-based optimization
+- **Custom Strategies:** User-defined allocation rules
+
+#### **4. Position Tracking**
+- **Real-Time P&L:** Live profit/loss updates
+- **Stop Loss Monitoring:** Automatic risk alerts
+- **Take Profit Tracking:** Exit signal monitoring
+- **Position Sizing:** Risk-based position calculation
+- **Exposure Limits:** Maximum position constraints
+
+---
+
+### **🤖 AI-Powered Recommendations - Smart Trading Assistant**
+
+**Machine learning-driven trading insights**
+
+**AI Features:**
+
+#### **1. Trading Recommendations**
+- **Technical Analysis:** Pattern recognition and signals
+- **Sentiment Analysis:** News and social media sentiment
+- **Momentum Scoring:** Trend strength and direction
+- **Risk Assessment:** Position risk evaluation
+- **Entry/Exit Signals:** Precise timing recommendations
+
+#### **2. Market Sentiment Analysis**
+- **Price Action Sentiment:** Bullish/bearish price patterns
+- **Volume Analysis:** Buying vs selling pressure
+- **Order Flow:** Market maker activity analysis
+- **News Impact:** Real-time news sentiment scoring
+- **Social Sentiment:** Twitter, Reddit, and forum analysis
+
+#### **3. Predictive Analytics**
+- **Price Predictions:** LSTM-based forecasting
+- **Volatility Forecasting:** GARCH model predictions
+- **Trend Continuation:** Probability of trend persistence
+- **Reversal Probability:** Likelihood of direction change
+- **Support/Resistance:** Dynamic level prediction
+
+#### **4. Risk Warnings**
+- **Overexposure Alerts:** Concentrated position warnings
+- **Correlation Alerts:** Highly correlated asset warnings
+- **Volatility Alerts:** Sudden volatility spikes
+- **Drawdown Alerts:** Portfolio drawdown thresholds
+- **Market Regime Changes:** Trend change detection
+
+---
+
+### **📡 Real-Time Trading - Live Market Integration**
+
+**WebSocket-powered live updates and alerts**
+
+**Real-Time Features:**
+
+#### **1. Live Price Feeds**
+- **Multi-Asset Updates:** Stocks, forex, crypto, commodities
+- **Bid/Ask Spreads:** Real-time liquidity data
+- **Volume Analysis:** Live volume and order book data
+- **Price Alerts:** Custom price level notifications
+
+#### **2. Position Monitoring**
+- **Live P&L Updates:** Real-time profit/loss tracking
+- **Risk Limit Monitoring:** Automatic position risk checks
+- **Stop Loss Alerts:** Breach notifications
+- **Take Profit Alerts:** Target achievement notifications
+
+#### **3. Market Alerts**
+- **News Alerts:** Breaking news impact analysis
+- **Economic Data:** Interest rate, employment, GDP releases
+- **Technical Signals:** Indicator crossover alerts
+- **Volume Spikes:** Unusual volume activity detection
+
+#### **4. Portfolio Dashboard**
+- **Real-Time Value:** Live portfolio valuation
+- **Performance Tracking:** Intraday performance metrics
+- **Risk Metrics:** Dynamic risk calculations
+- **Allocation Changes:** Real-time rebalancing alerts
+
+---
+
+### **🔧 API Integration - Seamless Connectivity**
+
+**RESTful APIs and WebSocket streams for all features**
+
+**API Endpoints:**
+
+#### **Screener APIs**
+```
+GET /api/trading/screener/scan - Run market scan
+POST /api/trading/screener/filters - Create custom filters
+GET /api/trading/screener/results - Get scan results
+```
+
+#### **Portfolio APIs**
+```
+GET /api/trading/portfolio/{id} - Get portfolio details
+POST /api/trading/portfolio/analyze - Run risk analysis
+PUT /api/trading/portfolio/rebalance - Rebalance portfolio
+```
+
+#### **AI Recommendation APIs**
+```
+POST /api/trading/ai-recommendations - Get AI recommendations
+POST /api/trading/market-sentiment - Analyze market sentiment
+POST /api/trading/price-prediction - Get price predictions
+```
+
+#### **Real-Time WebSocket APIs**
+```
+WS /api/ws/trading/{user_id} - Main trading WebSocket
+WS /api/ws/prices/{user_id} - Price update stream
+```
+
+**Authentication:** JWT-based secure API access
+**Rate Limiting:** Configurable request limits
+**Caching:** Redis-based response caching
+**Documentation:** Auto-generated OpenAPI/Swagger docs
+
+---
+
+### **📱 Frontend Integration - Modern Trading Interface**
+
+**React-based trading dashboard with real-time updates**
+
+**UI Components:**
+
+#### **1. Screener Interface**
+- **Filter Builder:** Drag-and-drop filter creation
+- **Results Table:** Sortable, filterable results grid
+- **Chart Integration:** Quick chart access for symbols
+- **Watchlist Integration:** One-click watchlist addition
+
+#### **2. Portfolio Dashboard**
+- **Portfolio Overview:** Total value, P&L, risk metrics
+- **Position Details:** Individual position tracking
+- **Performance Charts:** Historical performance visualization
+- **Rebalancing Tools:** Interactive rebalancing interface
+
+#### **3. Trading Terminal**
+- **Order Entry:** Quick order placement
+- **Position Management:** Modify/close positions
+- **Risk Controls:** Position size calculators
+- **Execution Monitoring:** Order status tracking
+
+#### **4. Real-Time Updates**
+- **Live Charts:** WebSocket-powered price updates
+- **Alert System:** Toast notifications for alerts
+- **Data Tables:** Auto-refreshing data grids
+- **Status Indicators:** Connection and system status
+
+---
+
+### **🗄️ Database Architecture - Scalable Data Management**
+
+**PostgreSQL with optimized schema for trading data**
+
+**Core Tables:**
+- **user_watchlists:** User screener watchlists
+- **portfolios:** Portfolio definitions and metadata
+- **portfolio_positions:** Individual position tracking
+- **background_scans:** Automated screener results
+- **risk_alerts:** Risk monitoring and alerts
+- **rebalance_recommendations:** Portfolio optimization suggestions
+- **ai_recommendations:** ML-generated trading recommendations
+- **market_sentiment:** Sentiment analysis results
+
+**Performance Features:**
+- **Indexing:** Optimized for fast queries
+- **Partitioning:** Time-based data partitioning
+- **Caching:** Redis caching for frequent queries
+- **Archiving:** Automatic data archiving for old records
+
+---
+
+### **🧪 Testing & Validation - Enterprise-Grade Quality**
+
+**Comprehensive test suite ensuring reliability**
+
+**Test Coverage:**
+- **Unit Tests:** Individual component testing
+- **Integration Tests:** End-to-end workflow testing
+- **Performance Tests:** Load and stress testing
+- **Risk Tests:** Edge case and error scenario testing
+
+**Test Categories:**
+- **Risk Analysis Tests:** VaR, CVaR calculation validation
+- **Portfolio Tests:** Rebalancing algorithm verification
+- **AI Tests:** Recommendation accuracy testing
+- **WebSocket Tests:** Real-time update reliability
+- **API Tests:** Endpoint functionality and security
+
+---
+
 ## 🔮 Roadmap
 
-### **Q1 2025**
+### **Q1 2025** ✅ COMPLETED
+- [x] Portfolio management
+- [x] Risk management tools
+- [x] Real-time alerts system
+- [x] Advanced backtesting engine
 - [ ] Mobile app (iOS/Android)
-- [ ] Real-time alerts system
-- [ ] Advanced backtesting engine
 - [ ] More model architectures (GAN, VAE)
 
 ### **Q2 2025**
-- [ ] Live trading integration
-- [ ] Portfolio management
+- [x] Live trading integration
+- [ ] Social trading features
 - [ ] Risk management tools
 - [ ] Social trading features
 
@@ -997,3 +1384,10 @@ If FinDashBuddy helps you trade smarter, give it a ⭐ on GitHub!
 - [ ] Educational platform
 
 ---
+
+### 🏛️ Architectural & Governance Vision
+For a detailed look into the long-term vision for governance, decentralization, and the overall system architecture, please see the following documents:
+
+- **[Decentralization Roadmap](./DECENTRALIZATION_ROADMAP.md)**: The phased plan for evolving into a community-owned, decentralized network.
+- **[Architectural Overview](./ARCHITECTURE.md)**: A technical deep-dive into the hybrid decentralized architecture.
+- **[User Guide & Grand Vision](./USER_GUIDE.md)**: An explanation of the long-term goal for a multi-app ecosystem built on the FinDash Buddy infrastructure.
