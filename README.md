@@ -1,8 +1,10 @@
+
+![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202025-11-26%2018-37-10.png)
+
+
 # FinDash Buddy - Your AI-Powered Trading Laboratory
 
-> **"Form ni gani? Twende kazi!
-
-" (What's the plan? Let's work!)**  
+ 
 > **This is the story of how I turned years of chaos into the trading partner I always wished existed.**
 
 > [!CAUTION]
@@ -84,8 +86,30 @@ The dashboard doesn't just show you numbers; it gives you **context**. Behind ev
 ![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202026-01-11%2011-45-09.png)
 
 
-- **Direction**: A clear "Bullish" or "Bearish" designation based on momentum and trend analysis.
+The Three Bar display when attached to a model should display forecast levels and daily expected moves, similar to the srength chart.  
+
+- **Direction**: A clear "Bullish" or "Bearish" designation based on momentum and trend analysis. You can click on any card to ge more in-depth analysis. 
+
+![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202026-01-11%2012-03-26.png)
+
+
+![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202026-01-11%2012-03-51.png)
+
+
+![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202026-01-11%2012-04-05.png)
+
+
+![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202026-01-11%2012-04-15.png)
+
+
 - **Regime**: Tells you if the market is currently **Stable** or **Volatile**, allowing you to adjust your strategy accordingly.
+
+![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202026-01-11%2012-04-27.png)
+
+![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202026-01-11%2012-04-40.png)
+
+![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202026-01-11%2012-05-02.png)
+
 - **Multi-Timeframe Alignment**: See all the above across M1, M5, H1, H4, and D1 simultaneously to ensure your trade has "consensus" across the board.
 
 ![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202026-01-11%2011-45-51.png)
@@ -93,8 +117,15 @@ The dashboard doesn't just show you numbers; it gives you **context**. Behind ev
 ![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202026-01-11%2011-46-26.png)
 
 
+All components in the dashboard can be attached to a ml model for predictive insight. Without models the dasboard uses default formulas to calculaet thhis metrics. The Chart view includes a Model predicions chart (right side) To forecast future prices. During research I found that simple lstms perfomed better in these time series forecast. 
+
+The Dashboard metrics can then be used by your llm for context or train custom dqn agents that you can then either run solo or plug to the llm agent. The llm agent helps translate metrics into human understandable form. Within the framework the agent is forced or compelled to act within data boundaries. 
+
+For Trade Execution the platform will have an internal playground; A Virtual trading Environment for backtesing and where you can train your agents and the MT5 Live trader where you can execute live trades to the market. 
+
+
 ### 🤖 The Agentic Framework: Hire Your AI Staff
-In Findash, you don't just watch the market—you **hire agents** to do it for you. 
+I wanted to create an agent who would explain to me why they took a particula trade, or why the dqn agent behaves the way it does in a trading environment. This pushed me to learn and implement an all-round llm architecure that complements and comprehends the overall analysis arcitecture of the dashboard. You  can **hire agents** to do  everything trading for you.  But my policy remains the agentt shhould complement your strategy or help you improve. Do not rely 100% on the agent!. In Findash you can:
 - **Easy Creation**: Use the **Create Agent** to "hire" an agent for any asset. 
 - **Customize your Agent**: Give your agent ML models for context
 - **Custom Instructions**: Give your agent a "Mission"—e.g., *"Notify me when RSI is oversold on 15m but the daily trend is bullish."*
@@ -221,6 +252,7 @@ Your agents don't just chat; they work.
     4.  **Decides**: Outputs a structured decision: `WAIT`, `BUY`, `SELL`, or `NOTIFY`.
     5.  **Acts**: Updates your dashboard or sends an alert.
 
+
   
 ![Agentic Framework](./Images/Screenshot%20from%202026-01-11%2011-48-24.png)
 
@@ -231,15 +263,21 @@ Your agents don't just chat; they work.
 #### 2. The "Cosmic" Data Layer
 Findash now correlates financial data with non-traditional datasets to find hidden edges:
 *   **☀️ Space Weather**: Ingests Solar Wind and Kp Index data from NOAA. (Research suggests geomagnetic storms correlate with market volatility).
-*   **🌍 Seismic Activity**: Tracks global earthquakes via USGS to predict regional economic disruptions.
+*   **🌍 Seismic Activity**: Tracks global earthquakes via USGS to predict regional economic disruptions. Ask your agent  "Are there any meaningful correlations between Earthquakes and Stock A?" Your agent will use te tools in the Python backend to fetch data for the Asset ,  Merge with Earthquake data and run analysis or interprete themeselves.  You can also independently run such analysis using the Analysis pipeline. 
 *   **🐍 Python Sandbox**: A secure environment to write and test your *own* Python indicators against live market data without crashing the server.
+
 
 ### 🔮 Future Enhancements
 *   **Collaborative Swarms**: Multiple agents debating a trade live in your chat window—The Technical Analyst arguing with the Fundamental Analyst—giving you a balanced perspective before you click 'Buy'.
 *   **Direct Broker Execution**: Allowing agents to not just signal 'BUY', but execute it via bridge API (User approval required). 
 
 ### 🌉 The MT5 Bridge: Decentralized Data Gateway
-To ensure Findash is accessible and robust, I built a custom **MT5-Bridge**. This is a high-performance Wine-based wrapper that exposes the MetaTrader 5 terminal as a clean, modern Flask API.
+To ensure Findash is accessible and robust, I built a custom 
+
+![MT5 Framework](./Images/Screenshot%20from%202026-01-11%2011-43-11.png)
+
+
+**MT5-Bridge**. This is a high-performance Wine-based wrapper that exposes the MetaTrader 5 terminal as a clean, modern Flask API.
 - **Why MetaTrader 5?**: 
     - **Total Accessibility**: MT5 is free and available to any trader with a brokerage account worldwide.
     - **Decentralization by Design**: Since MT5 supports thousands of brokers, Findash is not tied to a single liquidity provider. If one broker goes down, you simply switch your bridge to another—one failure won't affect the entire platform.
@@ -247,6 +285,10 @@ To ensure Findash is accessible and robust, I built a custom **MT5-Bridge**. Thi
 
 ### 💻 Python & JavaScript to MQL5: Bridging the Gap
 One of the biggest hurdles in trading is the "MQL5 tax"—the requirement to learn a specific, C++ like language just to test a simple idea. Findash solves this by bridging the worlds of Web and Data Science:
+
+![Code](./Images/Screenshot%20from%202026-01-11%2012-06-00.png)
+
+
 - **Unified Logic**: Through the **Code Window**, you can write your trading logic in **Python or JavaScript**. 
 - **The MQL5 "Bypass"**: You get the power of MQL5's market access without ever having to touch a `.mq5` file. Your Python/JS code interacts with the bridge to execute trades, calculate custom indicators, and run ML inferences with ease.
 - **Rapid Prototyping**: Go from a data science experiment in a notebook to a live-running strategy in minutes.
@@ -283,7 +325,6 @@ This is the pipeline that finally replaced my messy notebooks. Each step transfo
 
 ![Data Source Selection](./Images/Screenshot%20from%202026-01-11%2011-53-39.png)
 
-Images/Screenshot from 2026-01-11 11-53-39.png
 ---
 
 ### **Step 2: Technical Analysis - The Math Layer**
@@ -387,7 +428,7 @@ Images/Screenshot from 2026-01-11 11-53-39.png
 
 
 
-Images/Screenshot from 2026-01-11 11-58-17.png
+
 **Configuration:**
 - Select which celestial bodies to track
 - Choose aspect types (major vs minor)
@@ -843,231 +884,7 @@ FinDashBuddy supports **5 chart types** with extensive customization:
 
 ---
 
-## 🔍 Multi-Timeframe Analysis - The Alignment Strategy
 
-**What it is:** Analyze the same asset across multiple timeframes simultaneously
-
-![Multi-Timeframe Analysis Window](./Images/Screenshot%20from%202025-11-30%2017-30-59.png)
-
-**How it works:**
-1. Select symbol (e.g., EURUSD)
-2. Choose timeframes (e.g., M5, M15, H1, H4, D1)
-3. Run analysis across all timeframes
-4. View consensus signals
-
-**For each timeframe, you see:**
-- **Volatility:** Current volatility level
-- **Speed:** Rate of price change
-- **Direction:** Bullish/Bearish/Neutral
-- **Regime:** Trending/Ranging/Volatile
-- **Model Predictions:** AI predictions for this timeframe
-- **Sparkline:** Mini price chart
-
-**Consensus Dashboard:**
-- **Overall Direction:** Weighted average across timeframes
-- **Alignment Score:** How many timeframes agree (0-100%)
-- **Strongest Timeframe:** Which timeframe has clearest signal
-- **Conflicting Signals:** Timeframes that disagree
-- **Recommended Action:** Buy/Sell/Wait based on alignment
-
-**Use case:** Trade only when multiple timeframes align (e.g., H1, H4, and D1 all bullish)
-
----
-
-## 🤖 AI Chat Assistant - Your Trading Buddy
-
-![AI Chat Assistant](./Images/Screenshot%20from%202025-11-30%2017-30-15.png)
-
-**What it does:** Natural language interface to your analysis
-
-**Supported LLM Providers:**
-- **Local:** Phi-3-Mini, Llama, Mistral (runs on your machine)
-- **OpenAI:** GPT-4, GPT-4-Turbo, GPT-3.5
-- **Anthropic:** Claude 3 Opus, Claude 3 Sonnet
-- **Google:** Gemini Pro, Gemini Flash
-
-**What you can ask:**
-- "Explain this divergence on EURUSD H4"
-- "Form ni gani leo?" (What's the setup today?)
-- "Is this bullish or am I dreaming?"
-- "What do the models predict for Gold?"
-- "Show me the strongest support zone"
-- "Which timeframe has the clearest signal?"
-
-**Context-Aware Responses:**
-The AI has access to:
-- Current chart data (OHLCV)
-- Technical indicators
-- Model predictions
-- Volatility metrics
-- Momentum indicators
-- Market regime
-- Astronomical conditions
-- Sentiment scores
-- Multi-timeframe analysis
-
-**Example Conversation:**
-```
-You: "What's the setup on BTCUSD right now?"
-
-AI: "Based on the current analysis:
-- Price: $42,350 (+2.3% today)
-- Direction: Bullish on H1, H4, D1 (strong alignment)
-- Volatility: Medium (ATR: 850)
-- Key Level: Strong support at $41,800
-- Model Prediction: 73% probability of move to $43,200
-- Regime: Trending (ADX: 28)
-- Recommendation: Look for pullback to $42,000 for long entry"
-```
-
----
-
-## 🛠️ Building Your Own Models - The Creator's Guide
-
-**Can I code my own model?** YES! Here's how:
-
-### **Option 1: Use the Model Builder (No Code)**
-1. Go to Step 8 (Model Selection)
-2. Browse the model catalog
-3. Select an architecture (LSTM, TCN, Transformer, etc.)
-4. Configure parameters using sliders
-5. Click "Build Model"
-6. Train and save
-
-### **Option 2: Custom Architecture (Advanced)**
-
-**Backend Integration:**
-Create a new model architecture in `Backend/app/models/architectures/`:
-
-```python
-# Backend/app/models/architectures/my_custom_model.py
-
-from tensorflow.keras.models import Model
-from tensorflow.keras.layers import Input, LSTM, Dense, Dropout
-
-def build_my_custom_model(
-    input_shape: tuple,
-    n_predictions: int,
-    lstm_units: int = 128,
-    dropout: float = 0.2
-) -> Model:
-    """
-    My custom LSTM architecture with special sauce
-    
-    Args:
-        input_shape: (sequence_length, num_features)
-        n_predictions: Number of future steps to predict
-        lstm_units: LSTM layer size
-        dropout: Dropout rate
-    
-    Returns:
-        Compiled Keras model
-    """
-    inputs = Input(shape=input_shape)
-    
-    # Your custom architecture here
-    x = LSTM(lstm_units, return_sequences=True)(inputs)
-    x = Dropout(dropout)(x)
-    x = LSTM(lstm_units // 2)(x)
-    x = Dropout(dropout)(x)
-    outputs = Dense(n_predictions)(x)
-    
-    model = Model(inputs=inputs, outputs=outputs)
-    model.compile(optimizer='adam', loss='mse', metrics=['mae'])
-    
-    return model
-```
-
-**Register in Model Catalog:**
-```python
-# Backend/app/models/model_catalog.py
-
-MODEL_CATALOG = [
-    {
-        "id": "my_custom_lstm",
-        "name": "My Custom LSTM",
-        "category": "lstm",
-        "description": "Custom LSTM with special sauce",
-        "parameters": [
-            {"name": "lstm_units", "type": "int", "default": 128, "min": 32, "max": 512},
-            {"name": "dropout", "type": "float", "default": 0.2, "min": 0.0, "max": 0.5}
-        ],
-        "builder_function": "build_my_custom_model",
-        "input_requirements": {
-            "min_sequence_length": 30,
-            "min_features": 5
-        },
-        "tags": ["lstm", "custom", "experimental"],
-        "complexity": "medium",
-        "recommended_for": ["trend_following", "price_prediction"]
-    }
-]
-```
-
-**Now it appears in the frontend model catalog!**
-
-### **Option 3: External Model Integration**
-
-Already have a trained model? Import it:
-
-```python
-# Save your model in the standard format
-import joblib
-
-# For scikit-learn models
-joblib.dump(my_model, 'my_model.pkl')
-
-# For Keras/TensorFlow
-my_model.save('my_model.h5')
-
-# For PyTorch
-torch.save(my_model.state_dict(), 'my_model.pth')
-```
-
-Then load it in FinDashBuddy:
-1. Go to Model Selection
-2. Click "Import Model"
-3. Upload your model file
-4. Configure input/output shapes
-5. Test predictions
-6. Save to library
-
----
-
-## 🏪 Model Marketplace - Share & Earn
-
-**Publish Your Models:**
-1. Train a model with good performance
-2. Click "Save Model" in Results step
-3. Fill in details (name, description, symbol, timeframe)
-4. Set as "Public" and "Rentable"
-5. Set rental price (in BESHA tokens or $)
-6. Publish to marketplace
-
-**Model Listing Shows:**
-- Model name and description
-- Architecture type (LSTM, TCN, etc.)
-- Symbol and timeframe trained on
-- Performance metrics (accuracy, Sharpe ratio, win rate)
-- Number of downloads
-- User ratings and reviews
-- Price (free or paid)
-
-**Earn from Your Models:**
-- Users rent your model for predictions
-- You earn BESHA tokens or $ per rental
-- Revenue split: 70% creator, 20% platform, 10% treasury
-- Track earnings in Treasury dashboard
-
-**Download Models:**
-- Browse marketplace
-- Filter by symbol, timeframe, architecture
-- Sort by performance, rating, downloads
-- Preview model details
-- Download/rent model
-- Use in your analysis pipeline
-
----
 
 ## 🌍 The Economy (Web3 Layer)
 
@@ -1113,7 +930,7 @@ The new **Setup Wizard** guides you through:
 4. **Preferences:** Choose your theme (Dark/Light) and notification settings.
 5. **Exchange Keys:** Connect Binance or Coinbase (encrypted & optional).
 
-**Simple Language Summary:**
+**Summary:**
 - **We handle the tech:** You don't need to know about keys, gas, or contracts.
 - **You own the value:** Your tokens and reputation are yours forever.
 - **Safety first:** Bank-grade security with device checks and encryption.
