@@ -1,7 +1,4 @@
 
-![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202025-11-26%2018-37-10.png)
-
-
 # FinDash Buddy - Your AI-Powered Trading Laboratory
 
  
