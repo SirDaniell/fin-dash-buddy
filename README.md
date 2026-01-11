@@ -12,7 +12,7 @@
 
 ## 🚀 Beyond a Trading Tool: The FinDash Buddy Ecosystem
 
-While FinDash Buddy is a powerful, standalone AI-powered trading laboratory, it is also the gateway to a revolutionary financial ecosystem powered by the **BESHA** utility token. This project's vision extends far beyond charts and models to create a community-owned, decentralized economy.
+FinDash Buddy is a powerful, standalone AI-powered trading laboratory, it is also the gateway to a revolutionary financial ecosystem powered by the **BESHA** utility token. This project's vision extends far beyond charts and models to create a community-owned, decentralized economy.
 
 **BESHA ("PESA" in Swahili)** is founded on three core principles:
 
@@ -46,7 +46,7 @@ That lab became **FinDash Buddy**.
 
 ## 🎯 Why I'm Building FinDash Buddy
 
-Trading isn't just about clicking buttons; it's about being sure of your **next step**. For me, building FinDash Buddy was about moving from guesswork to **evidence-based confidence**. I wanted a system where data doesn't just sit in the background—it actually backs up every reason for entering a trade.
+Trading is about being sure of your **next step** or making decisions based on an optimal patth for your goal; in this case Making profits consistently. For me, building FinDash Buddy was about moving from guesswork to **evidence-based confidence**. I wanted a system where data doesn't just sit in the background—it actually backs up every reason for entering a trade.
 
 Through years of backtesting, I’ve learned a critical lesson: most market situations are explainable with data. When you have that data, you can formulate hypotheses that either stand or fall. I didn't just want a "black box" model; I wanted to understand the *reasoning* behind a signal—whether it's from a technical system or a deep learning model.
 
@@ -68,7 +68,7 @@ That question became the soul of FinDash Buddy.
 ---
 ## 🎯 So What is Findash ?
 
-FinDash Buddy is your advanced **AI-Powered Trading Laboratory**, designed to bridge the gap between complex quantitative analysis and everyday trading. It's not just a dashboard; it's a unified ecosystem where you can discover, analyze, and automate your trading strategies using state-of-the-art AI.
+FinDash Buddy is your advanced **AI-Powered Trading Laboratory**, designed to bridge the gap between complex quantitative analysis and everyday trading. Findaah app comes as an installable and is designed for offline first, meaning you can interract with your agents and models even without internet. However since Findash is built on web3 and depends on blockchain  online access is mandaory after a while to sync blockchain security, whilst ensuring you can sill make transactions while offline.  Findash is a unified ecosystem where you can create, explore and discover, analyze, and automate your trading strategies using state-of-the-art AI.
 
 ### 📊 Intelligent Dashboard Metrics
 The dashboard doesn't just show you numbers; it gives you **context**. Behind every symbol, Findash calculates real-time "Smart Metrics":
@@ -113,9 +113,89 @@ Findash includes a professional-grade **Analysis Pipeline** that takes you from 
 
 
 ### 🧠 AI & LLM Architecture: Local-First Intelligence
+
 Findash is built on a **Local-First** AI philosophy. While we support major cloud providers (OpenAI, Anthropic, Gemini), the heart of the platform is the **Ollama Integration**.
 - **Privacy & Speed**: By running models locally (like Llama 3.1 or Phi-3), your trading data never leaves your machine, and inference happen with zero network latency.
 - **Provider Pattern**: The `AIManager` backend uses a modular provider pattern, allowing you to hot-swap between local Ollama instances and cloud APIs without changing your agent's instructions.
+
+It is with this architecure that I will introduce my own llm that I had been working on a while, but for stability I have designed the system around the Ollama architecture. Transformers js proved tto be more memory intensive and so I shifted from it.
+
+### 🛠️ Setting Up Your AI Council
+
+Findash allows you to create a personalized "Board of Directors" for your trading. Here is how you configure your agents:
+
+1.  **Open the Council**: Click the AI Chat button to open the `MultiAIChatWindow`.
+2.  **Add Participant**: Click the "+" button to open the `AIParticipantSelector`.
+3.  **Choose a Template or Go Custom**:
+    *   **Templates**: Select pre-tuned experts like "Bull Analyst" (optimistic pattern seeker), "Risk Manager" (conservative), or "Technical Purist".
+    *   **Custom**: Define your own agent. Give it a name, an avatar, and a specific "System Prompt" (Mission).
+4.  **Select the Brain**: Choose the underlying model. You can assign a lightweight local model (e.g., `Phi-3`) for quick queries and a heavy cloud model (e.g., `GPT-4-Turbo`) for complex reasoning.
+
+### 🔄 The Life of a Request: From Prompt to Profit
+
+How does the magic happen? Let's trace a request like:
+*"Run a correlation analysis for EURUSD and Gold, then send me a report."*
+
+1.  **Context Assembly (The "Input")**:
+    *   The **Frontend** grabs the current state: Price of EURUSD, Gold, current indicators (RSI=70, MACD=Bullish), and recent news headlines.
+    *   It packages this into a "Context Block" invisible to you but vital for the AI.
+
+2.  **Orchestration (The "Decision")**:
+    *   The `MultiAIChatContext` analyzes your request. It sees you need data comparison.
+    *   If you addressed a specific agent (e.g., `@Quant`), it routes strictly to them. If not, the "Orchestrator" decides who is best suited (e.g., the Data Analyst agent).
+
+3.  **Tool Execution (The "Action")**:
+    *   The agent realizes it needs historical correlation data. It triggers the `execute_analysis` tool.
+    *   **Backend**: The `tool_router` receives this, runs a Python script to calculate the Pearson Correlation Coefficient over the last 90 days, and returns the result (e.g., `0.85 positive correlation`).
+
+4.  **Synthesis & Response**:
+    *   The agent receives this number. It doesn't just print it; it *interprets* it:
+    *   *"EURUSD and Gold are maintaining a strong 0.85 correlation. Given Gold's recent breakout, EURUSD is statistically likely to follow upwards."*
+
+5.  **Future Actions (The "Enhancement")**:
+    *   *Coming Soon*: The agent triggers the `email_service` tool to format this insight into a PDF and email it to you automatically.
+
+### 💬 Example Prompts & Agent Responses
+
+Here is how different agents interpret the same market data:
+
+**Scenario**: EURUSD is approaching a major resistance level at 1.1000.
+
+#### 1. The "Bull Analyst" (`@Bull`)
+> **User**: "What's the play here?"
+> **Response**: "I'm seeing a classic **Cup and Handle** forming on the H4 timeframe! Volume is rising on the approach to 1.1000. If we break this resistance, we have wide open skies until 1.1050. I recommend looking for buy stops above the breakout!"
+
+#### 2. The "Risk Manager" (`@Risk`)
+> **User**: "What's the play here?"
+> **Response**: "Caution is advised. We are at a historic rejection point (1.1000). RSI is also overbought at 75. Even if you are bullish, waiting for a confirmed retest of 1.1000 turns resistance into support. Don't chase the green candles; wait for the setup."
+
+#### 3. The "Sentiment Scout" (`@Sentiment`)
+> **User**: "What is the market feeling?"
+> **Response**: "I've scanned recent news and Twitter sentiment. There is a lot of chatter about the upcoming ECB announcement. The 'Fear & Greed Index' is at 65 (Greed), suggesting the crowd is getting euphoric. Be careful of a 'buy the rumor, sell the news' event."
+
+### 🚀 Advanced Capabilities: The Autonomous Hedge Fund (Beta)
+
+The system has evolved from a simple chatbot to a semi-autonomous trading backend.
+
+#### 1. Autonomous Agent Loops (`AgentRunner`)
+Your agents don't just chat; they work.
+*   **Bounded Autonomy**: You can assign an agent to "Watch" a specific asset (e.g., BTCUSD).
+*   **The Loop**: Every hour (or your set interval), the agent:
+    1.  Wakes up.
+    2.  Reads the latest 10 candles and technical indicators.
+    3.  Consults its "Mission" (e.g., "Find RSI divergence").
+    4.  **Decides**: Outputs a structured decision: `WAIT`, `BUY`, `SELL`, or `NOTIFY`.
+    5.  **Acts**: Updates your dashboard or sends an alert.
+
+#### 2. The "Cosmic" Data Layer
+Findash now correlates financial data with non-traditional datasets to find hidden edges:
+*   **☀️ Space Weather**: Ingests Solar Wind and Kp Index data from NOAA. (Research suggests geomagnetic storms correlate with market volatility).
+*   **🌍 Seismic Activity**: Tracks global earthquakes via USGS to predict regional economic disruptions.
+*   **🐍 Python Sandbox**: A secure environment to write and test your *own* Python indicators against live market data without crashing the server.
+
+### 🔮 Future Enhancements
+*   **Collaborative Swarms**: Multiple agents debating a trade live in your chat window—The Technical Analyst arguing with the Fundamental Analyst—giving you a balanced perspective before you click 'Buy'.
+*   **Direct Broker Execution**: Allowing agents to not just signal 'BUY', but execute it via bridge API (User approval required). 
 
 ### 🌉 The MT5 Bridge: Decentralized Data Gateway
 To ensure Findash is accessible and robust, I built a custom **MT5-Bridge**. This is a high-performance Wine-based wrapper that exposes the MetaTrader 5 terminal as a clean, modern Flask API.
