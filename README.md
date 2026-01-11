@@ -39,7 +39,8 @@ So I stopped jumping between scattered pipelines and built one unified system �
 
 That lab became **FinDash Buddy**.
 
-![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202025-11-30%2017-25-11.png)
+![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202026-01-11%2011-44-14.png)
+
 *My command center. Live charts, smart metrics, my watchlist — everything I used to jump between in 10 tabs now lives in one place.*
 
 ---
@@ -72,12 +73,25 @@ FinDash Buddy is your advanced **AI-Powered Trading Laboratory**, designed to br
 
 ### 📊 Intelligent Dashboard Metrics
 The dashboard doesn't just show you numbers; it gives you **context**. Behind every symbol, Findash calculates real-time "Smart Metrics":
+
+![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202026-01-11%2011-44-39.png)
+
 - **Price & Change**: Real-time tracking of market value and movement.
 - **Volatility**: Measures the average price range as a percentage, helping you gauge risk instantly.
 - **Speed**: The velocity of price movement—identifying when the market is "accelerating."
+
+
+![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202026-01-11%2011-45-09.png)
+
+
 - **Direction**: A clear "Bullish" or "Bearish" designation based on momentum and trend analysis.
 - **Regime**: Tells you if the market is currently **Stable** or **Volatile**, allowing you to adjust your strategy accordingly.
 - **Multi-Timeframe Alignment**: See all the above across M1, M5, H1, H4, and D1 simultaneously to ensure your trade has "consensus" across the board.
+
+![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202026-01-11%2011-45-51.png)
+
+![Main Dashboard - Live Trading View](./Images/Screenshot%20from%202026-01-11%2011-46-26.png)
+
 
 ### 🤖 The Agentic Framework: Hire Your AI Staff
 In Findash, you don't just watch the market—you **hire agents** to do it for you. 
@@ -86,6 +100,9 @@ In Findash, you don't just watch the market—you **hire agents** to do it for y
 - **Custom Instructions**: Give your agent a "Mission"—e.g., *"Notify me when RSI is oversold on 15m but the daily trend is bullish."*
 - **Bounded Autonomy**: Your agents operate 24/7 within the parameters you set, monitoring live streams and executing their "Mission" instructions autonomously.
 - **Deployment**: Once "hired," your agents live in the **Side Panel**, constantly scanning, thinking, and ready to alert you or take action.
+
+![Agentic Framework](./Images/Screenshot%20from%202026-01-11%2011-49-46.png)
+
 
 ### 🛠️ Agentic Toolbelt
 Your agents aren't just reading text; they have access to powerful tools to make better decisions:
@@ -115,12 +132,19 @@ Findash includes a professional-grade **Analysis Pipeline** that takes you from 
 ### 🧠 AI & LLM Architecture: Local-First Intelligence
 
 Findash is built on a **Local-First** AI philosophy. While we support major cloud providers (OpenAI, Anthropic, Gemini), the heart of the platform is the **Ollama Integration**.
+
+
+![Agentic Framework](./Images/Screenshot%20from%202026-01-11%2011-50-18.png)
+
 - **Privacy & Speed**: By running models locally (like Llama 3.1 or Phi-3), your trading data never leaves your machine, and inference happen with zero network latency.
 - **Provider Pattern**: The `AIManager` backend uses a modular provider pattern, allowing you to hot-swap between local Ollama instances and cloud APIs without changing your agent's instructions.
 
 It is with this architecure that I will introduce my own llm that I had been working on a while, but for stability I have designed the system around the Ollama architecture. Transformers js proved tto be more memory intensive and so I shifted from it.
 
 ### 🛠️ Setting Up Your AI Council
+
+
+![Agentic Framework](./Images/Screenshot%20from%202026-01-11%2011-50-39.png)
 
 Findash allows you to create a personalized "Board of Directors" for your trading. Here is how you configure your agents:
 
@@ -130,6 +154,8 @@ Findash allows you to create a personalized "Board of Directors" for your tradin
     *   **Templates**: Select pre-tuned experts like "Bull Analyst" (optimistic pattern seeker), "Risk Manager" (conservative), or "Technical Purist".
     *   **Custom**: Define your own agent. Give it a name, an avatar, and a specific "System Prompt" (Mission).
 4.  **Select the Brain**: Choose the underlying model. You can assign a lightweight local model (e.g., `Phi-3`) for quick queries and a heavy cloud model (e.g., `GPT-4-Turbo`) for complex reasoning.
+
+![Agentic Framework](./Images/Screenshot%20from%202026-01-11%2011-50-54.png)
 
 ### 🔄 The Life of a Request: From Prompt to Profit
 
@@ -177,15 +203,30 @@ Here is how different agents interpret the same market data:
 
 The system has evolved from a simple chatbot to a semi-autonomous trading backend.
 
+![Agentic Framework](./Images/Screenshot%20from%202026-01-11%2011-46-56.png)
+
+![Agentic Framework](./Images/Screenshot%20from%202026-01-11%2011-47-13.png)
+
 #### 1. Autonomous Agent Loops (`AgentRunner`)
 Your agents don't just chat; they work.
 *   **Bounded Autonomy**: You can assign an agent to "Watch" a specific asset (e.g., BTCUSD).
+
+![Agentic Framework](./Images/Screenshot%20from%202026-01-11%2011-48-13.png)
+
+
 *   **The Loop**: Every hour (or your set interval), the agent:
     1.  Wakes up.
     2.  Reads the latest 10 candles and technical indicators.
     3.  Consults its "Mission" (e.g., "Find RSI divergence").
     4.  **Decides**: Outputs a structured decision: `WAIT`, `BUY`, `SELL`, or `NOTIFY`.
     5.  **Acts**: Updates your dashboard or sends an alert.
+
+  
+![Agentic Framework](./Images/Screenshot%20from%202026-01-11%2011-48-24.png)
+
+
+![Agentic Framework](./Images/Screenshot%20from%202026-01-11%2011-49-04.png)
+
 
 #### 2. The "Cosmic" Data Layer
 Findash now correlates financial data with non-traditional datasets to find hidden edges:
@@ -215,13 +256,15 @@ One of the biggest hurdles in trading is the "MQL5 tax"—the requirement to lea
 
 This is the pipeline that finally replaced my messy notebooks. Each step transforms raw market data into actionable intelligence.
 
+![Data Source Selection](./Images/Screenshot%20from%202026-01-11%2011-51-44.png)
+
 ### **Step 1: Data Source - The Foundation**
 
 **What it does:** Connects to your data sources and loads market data  
 **Inputs:** MT5 connection, CSV files, or mixed datasets  
 **Outputs:** Clean OHLCV (Open, High, Low, Close, Volume) time series data
 
-![Data Source Selection](./Images/Screenshot%20from%202025-11-30%2017-29-08.png)
+![Data Source Selection](./Images/Screenshot%20from%202026-01-11%2011-52-18.png)
 
 
 **Why this matters:** Garbage in = garbage out. This step ensures your data is clean, properly formatted, and ready for analysis.
@@ -233,8 +276,14 @@ This is the pipeline that finally replaced my messy notebooks. Each step transfo
 - Select symbols, timeframes (M1, M5, H1, H4, D1, etc.)
 - Set date ranges for historical analysis
 
+![Data Source Selection](./Images/Screenshot%20from%202026-01-11%2011-53-03.png)
+
+
 **Expected output:** A validated dataset with timestamps, OHLCV data, and metadata
 
+![Data Source Selection](./Images/Screenshot%20from%202026-01-11%2011-53-39.png)
+
+Images/Screenshot from 2026-01-11 11-53-39.png
 ---
 
 ### **Step 2: Technical Analysis - The Math Layer**
@@ -243,7 +292,7 @@ This is the pipeline that finally replaced my messy notebooks. Each step transfo
 **Inputs:** Raw OHLCV data from Step 1  
 **Outputs:** Enriched dataset with indicators (SMA, EMA, RSI, MACD, Bollinger Bands, etc.)
 
-![Technical Analysis Configuration](./Images/Screenshot%20from%202025-11-30%2017-27-41.png)
+![Technical Analysis Configuration](./Images/Screenshot%20from%202026-01-11%2011-53-58.png)
 
 **Available Indicators:**
 - **Trend:** SMA (multiple periods), EMA, DEMA, TEMA, WMA
@@ -253,10 +302,18 @@ This is the pipeline that finally replaced my messy notebooks. Each step transfo
 - **Oscillators:** MACD, Stochastic RSI, Ultimate Oscillator
 - **Custom:** Parabolic SAR, Ichimoku, Supertrend, Pivot Points
 
+![Technical Analysis Configuration](./Images/Screenshot%20from%202026-01-11%2011-54-25.png)
+
+![Technical Analysis Configuration](./Images/Screenshot%20from%202026-01-11%2011-56-08.png)
+
+
 **Chart Visualizations:**
 1. **Main Price Chart** - Candlestick/Line/Area/Bar/Heikin-Ashi
 2. **RSI Panel** - Separate panel showing RSI oscillator with overbought/oversold zones
 3. **MACD Panel** - MACD line, signal line, and histogram
+
+![Technical Analysis Configuration](./Images/Screenshot%20from%202026-01-11%2011-55-38.png)
+
 
 **What you can configure:**
 - Select which indicators to calculate
@@ -275,7 +332,8 @@ This is the pipeline that finally replaced my messy notebooks. Each step transfo
 **Inputs:** OHLCV + Technical indicators  
 **Outputs:** SNR zones, breakout signals, bounce signals
 
-![SNR Signal Analysis](./Images/Screenshot%20from%202025-11-30%2017-28-16.png)
+![SNR Signal Analysis](./Images/Screenshot%20from%202026-01-11%2011-56-29.png)
+
 
 **How it works:**
 1. **Zone Detection:** Uses K-Means clustering to find price levels where price repeatedly bounces
@@ -289,6 +347,9 @@ This is the pipeline that finally replaced my messy notebooks. Each step transfo
 - **Number of Clusters:** How many SNR zones to identify (default: 8)
 - **Zone Width:** Thickness of each zone in percentage (default: 0.5%)
 - **Minimum Distance:** Minimum separation between zones (default: 1%)
+
+![SNR Signal Analysis](./Images/Screenshot%20from%202026-01-11%2011-56-55.png)
+
 
 **Signals Generated:**
 - `SNR_Signal`: -1 (resistance rejection), 0 (neutral), +1 (support bounce)
@@ -309,7 +370,11 @@ This is the pipeline that finally replaced my messy notebooks. Each step transfo
 **Inputs:** Time series data with timestamps  
 **Outputs:** Astronomical features correlated with market cycles
 
-**Why astronomy?** Not superstition — statistical correlation. Markets are driven by human psychology, and human behavior shows measurable patterns with lunar cycles, planetary aspects, and seasonal timing.
+**Why astronomy?** Not superstition — statistical correlation. Markets are driven by human psychology, and human behavior shows measurable patterns with lunar cycles, planetary aspects, and seasonal timing.  You can entirely skip this step. 
+
+
+![Astronomy Feaures](./Images/Screenshot%20from%202026-01-11%2011-57-34.png)
+
 
 **Features Calculated:**
 - **Lunar Phase:** New Moon, Waxing Crescent, First Quarter, Waxing Gibbous, Full Moon, Waning Gibbous, Last Quarter, Waning Crescent
@@ -318,11 +383,21 @@ This is the pipeline that finally replaced my messy notebooks. Each step transfo
 - **Retrograde Periods:** Mercury, Venus, Mars retrograde indicators
 - **Seasonal Timing:** Equinoxes, solstices, quarter markers
 
+![Astronomy Feaures](./Images/Screenshot%20from%202026-01-11%2011-57-53.png)
+
+
+
+Images/Screenshot from 2026-01-11 11-58-17.png
 **Configuration:**
 - Select which celestial bodies to track
 - Choose aspect types (major vs minor)
 - Set orb tolerance for aspects (±5°)
 - Enable/disable retrograde tracking
+
+![Astronomy Feaures](./Images/Screenshot%20from%202026-01-11%2011-58-17.png)
+
+![Astronomy Feaures](./Images/Screenshot%20from%202026-01-11%2011-58-33.png)
+
 
 **Visualization:**
 - **Orbital Chart:** Shows planetary positions over time
@@ -338,6 +413,10 @@ This is the pipeline that finally replaced my messy notebooks. Each step transfo
 **What it does:** Analyzes news headlines and social media sentiment  
 **Inputs:** Time-aligned news data, social media feeds  
 **Outputs:** Sentiment scores, fear/greed index, event markers
+
+![News & Sentiment](./Images/Screenshot%20from%202026-01-11%2011-59-00.png)
+
+Images/Screenshot from 2026-01-11 11-59-00.png
 
 **Data Sources:**
 - Financial news APIs (Bloomberg, Reuters, etc.)
@@ -359,6 +438,7 @@ This is the pipeline that finally replaced my messy notebooks. Each step transfo
 **What it does:** Statistical analysis and quality checks on all features  
 **Inputs:** Complete dataset with all features from Steps 1-5  
 **Outputs:** Feature importance scores, correlation matrices, quality reports
+![Feature Review](./Images/Screenshot%20from%202026-01-11%2011-59-19.png)
 
 **Analysis Modules:**
 
@@ -377,6 +457,9 @@ This is the pipeline that finally replaced my messy notebooks. Each step transfo
 - Identifies which features have predictive power
 
 **Chart:** Bar chart ranking features by importance
+
+![Feature Review](./Images/Screenshot%20from%202026-01-11%2011-59-40.png)
+
 
 #### 6.3 **Correlation Analysis**
 - Pearson correlation matrix
@@ -399,6 +482,9 @@ This is the pipeline that finally replaced my messy notebooks. Each step transfo
 - Reports outlier percentage per feature
 
 **Chart:** Box plots showing outliers
+
+![Feature Review](./Images/Screenshot%20from%202026-01-11%2011-59-56.png)
+
 
 #### 6.6 **Time Series Tests**
 - **ADF Test:** Tests for stationarity
@@ -443,15 +529,19 @@ This is the pipeline that finally replaced my messy notebooks. Each step transfo
 **Inputs:** Clean feature dataset from Step 6  
 **Outputs:** Train/validation/test splits, scaled sequences, target labels
 
-![ML Preparation](./Images/Screenshot%20from%202025-11-30%2017-28-39.png)
+![ML Data Prep](./Images/Screenshot%20from%202026-01-11%2012-00-19.png)
 
 **Configuration Options:**
+
 
 #### **Sequence Parameters:**
 - **Sequence Length:** How many past candles to use as input (default: 60)
   - Example: 60 means "use last 60 candles to predict next N candles"
 - **Prediction Length:** How many future candles to predict (default: 4)
   - Example: 4 means "predict next 4 candles' close prices"
+
+![ML Data Prep](./Images/Screenshot%20from%202026-01-11%2012-00-32.png)
+
 
 #### **Target Columns:**
 - Select what to predict:
@@ -460,6 +550,10 @@ This is the pipeline that finally replaced my messy notebooks. Each step transfo
   - `volatility` (volatility regime)
   - `snr_signal` (support/resistance signals)
   - Custom targets
+
+
+
+![ML Data Prep](./Images/Screenshot%20from%202026-01-11%2012-00-51.png)
 
 #### **Feature Selection:**
 - **Exclude Columns:** Remove non-predictive columns (timestamps, symbols, etc.)
@@ -520,11 +614,14 @@ This is the pipeline that finally replaced my messy notebooks. Each step transfo
 
 ### **Step 8: Model Selection & Training - The Brain**
 
+
+![Model Builder](./Images/Screenshot%20from%202026-01-11%2012-01-33.png)
+
+
 **What it does:** Build, configure, and train deep learning models  
 **Inputs:** ML-ready sequences from Step 7  
 **Outputs:** Trained model with performance metrics
 
-![Model Builder](./Images/Screenshot%20from%202025-11-30%2017-28-39.png)
 
 **Model Architectures Available:**
 
@@ -552,6 +649,10 @@ Input (60, 45) → LSTM(128) → Dropout(0.2) → LSTM(64) → Dense(4)
   - `num_layers`: [4, 6, 8] - Number of residual blocks
   - `dilation_rates`: [[1,2,4,8], [1,2,4,8,16]] - Exponential dilation
   - `dropout`: [0.0 - 0.3]
+
+
+![Model Builder](./Images/Screenshot%20from%202026-01-11%2012-01-59.png)
+
 
 **Example Architecture:**
 ```
@@ -585,6 +686,10 @@ Transformer Block (d_model=128, heads=8) × 4 → Dense(4)
   - `pool_sizes`: [[2, 2, 2]] - Max pooling sizes
   - `dense_units`: [128, 256] - Fully connected layer size
 
+
+![Model Builder](./Images/Screenshot%20from%202026-01-11%2012-02-12.png)
+
+Images/Screenshot from 2026-01-11 12-02-12.png
 #### **5. Hybrid Models** 🔗
 - **CNN-LSTM:** CNN for feature extraction + LSTM for sequences
 - **CNN-TCN:** CNN + TCN for multi-scale patterns
