@@ -1,4 +1,3 @@
-
 # FinDash Buddy - Your AI-Powered Trading Laboratory
 
  
@@ -16,7 +15,7 @@ FinDash Buddy is a powerful, standalone AI-powered trading laboratory, it is als
 **BESHA ("PESA" in Swahili)** is founded on three core principles:
 
 1.  **Reputation-First Economy**: Your on-chain reputation matters more than your wallet size. Good actors are rewarded, while bad actors are publicly and permanently flagged.
-2.  **Real Utility from Day One**: BESHA isn't a speculative asset; it's the required currency for AI model access, data contributions, peer-to-peer commerce, and earning rewards.
+2.  **Real Utility from Day One**: BESHA is a utility token with built-in demand—the required currency for AI model access, data contributions, peer-to-peer commerce, and earning rewards.
 3.  **Community Ownership**: The ecosystem is designed to share 70% of platform revenues back to the token holders, contributors, and operators who create its value.
 
 This ecosystem is comprised of two main applications:
@@ -46,9 +45,9 @@ That lab became **FinDash Buddy**.
 
 ## 🎯 Why I'm Building FinDash Buddy
 
-Trading is about being sure of your **next step** or making decisions based on an optimal patth for your goal; in this case Making profits consistently. For me, building FinDash Buddy was about moving from guesswork to **evidence-based confidence**. I wanted a system where data doesn't just sit in the background—it actually backs up every reason for entering a trade.
+Trading is about being sure of your **next step** or making decisions based on an optimal path for your goal: making profits consistently. For me, building FinDash Buddy was about moving from guesswork to **evidence-based confidence**. I wanted a system where data actively backs up every reason for entering a trade.
 
-Through years of backtesting, I’ve learned a critical lesson: most market situations are explainable with data. When you have that data, you can formulate hypotheses that either stand or fall. I didn't just want a "black box" model; I wanted to understand the *reasoning* behind a signal—whether it's from a technical system or a deep learning model.
+Through years of backtesting, I've learned a critical lesson: most market situations are explainable with data. When you have that data, you can formulate hypotheses that either stand or fall. I wanted to understand the *reasoning* behind every signal—whether from a technical system or a deep learning model—making the decision process transparent and repeatable.
 
 The reasons for building this are endless, but here are the ones that kept me up at night:
 
@@ -66,9 +65,78 @@ That question became the soul of FinDash Buddy.
 > You really should read the full [**BESHA Introduction & Whitepaper**](./BESHA_INTRODUCTION.md) to understand the larger vision.
 
 ---
-## 🎯 So What is Findash ?
+## 🎯 So What is Findash?
 
-FinDash Buddy is your advanced **AI-Powered Trading Laboratory**, designed to bridge the gap between complex quantitative analysis and everyday trading. Findaah app comes as an installable and is designed for offline first, meaning you can interract with your agents and models even without internet. However since Findash is built on web3 and depends on blockchain  online access is mandaory after a while to sync blockchain security, whilst ensuring you can sill make transactions while offline.  Findash is a unified ecosystem where you can create, explore and discover, analyze, and automate your trading strategies using state-of-the-art AI.
+FinDash Buddy is your advanced **AI-Powered Trading Laboratory**, designed to bridge the gap between complex quantitative analysis and everyday trading. Findash app comes as an installable and is designed for offline first, meaning you can interact with your agents and models even without internet. However since Findash is built on web3 and depends on blockchain, online access is mandatory after a while to sync blockchain security, whilst ensuring you can still make transactions while offline. Findash is a unified ecosystem where you can create, explore and discover, analyze, and automate your trading strategies using state-of-the-art AI.
+
+### 🏗️ System Architecture
+
+```mermaid
+graph TB
+    subgraph "User Layer"
+        U[User/Trader]
+        B[Browser/Desktop App]
+    end
+    
+    subgraph "Frontend Layer"
+        FE[React Frontend<br/>Vite + TypeScript]
+        DC[Dashboard Components]
+        AC[Analysis Components]
+        AI[AI Chat Interface]
+        MC[Marketplace UI]
+    end
+    
+    subgraph "Backend Services - Local"
+        BE[Backend API<br/>FastAPI Port 8000]
+        MT5[MT5 Bridge<br/>Wine + Flask]
+        OL[Ollama Service<br/>Local LLM]
+    end
+    
+    subgraph "ServerBackend - Railway"
+        SB[ServerBackend API<br/>FastAPI]
+        WEB3[Web3 Services]
+        VENDOR[Vendor System]
+        VERIFIER[Verifier System]
+    end
+    
+    subgraph "Data Layer"
+        PG[(PostgreSQL<br/>User Data)]
+        NEO[(Neo4j<br/>Graph DB)]
+        REDIS[(Redis<br/>Cache)]
+        IPFS[IPFS<br/>Decentralized Storage]
+    end
+    
+    subgraph "Blockchain Layer"
+        ETH[Ethereum<br/>Smart Contracts]
+        BESHA[BESHA Token<br/>ERC20]
+    end
+    
+    U --> B
+    B --> FE
+    FE --> DC & AC & AI & MC
+    
+    FE --> BE
+    FE --> SB
+    
+    BE --> PG & NEO & REDIS
+    BE --> MT5
+    BE --> OL
+    
+    SB --> PG & NEO
+    SB --> WEB3
+    SB --> VENDOR & VERIFIER
+    
+    WEB3 --> IPFS
+    WEB3 --> ETH
+    ETH --> BESHA
+    
+    style FE fill:#e1f5fe
+    style BE fill:#fff3e0
+    style SB fill:#f3e5f5
+    style PG fill:#c8e6c9
+    style ETH fill:#ffe0b2
+```
+
 
 ### 📊 Intelligent Dashboard Metrics
 The dashboard doesn't just show you numbers; it gives you **context**. Behind every symbol, Findash calculates real-time "Smart Metrics":
@@ -167,7 +235,81 @@ Findash is built on a **Local-First** AI philosophy. While we support major clou
 - **Privacy & Speed**: By running models locally (like Llama 3.1 or Phi-3), your trading data never leaves your machine, and inference happen with zero network latency.
 - **Provider Pattern**: The `AIManager` backend uses a modular provider pattern, allowing you to hot-swap between local Ollama instances and cloud APIs without changing your agent's instructions.
 
-It is with this architecure that I will introduce my own llm that I had been working on a while, but for stability I have designed the system around the Ollama architecture. Transformers js proved tto be more memory intensive and so I shifted from it.
+It is with this architecure that I will introduce my own llm that I had been working on a while, but for stability I have designed the system around the Ollama architecture. Transformers js proved to be more memory intensive and so I shifted from it.
+
+### 🔄 AI Request Lifecycle
+
+The following diagram shows how your AI requests flow through the system, from your message to the final response:
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant FE as Frontend<br/>MultiAIChatContext
+    participant MEM as Memory Service<br/>/api/v1/memory
+    participant BE as Backend<br/>/api/v1/ollama/chat
+    participant LLM as LLM Provider<br/>(Ollama/OpenAI)
+    participant TOOLS as Tool Router<br/>/api/v1/tools
+    participant RAG as RAG Service<br/>/api/v1/rag
+    
+    U->>FE: 1. Submit message
+    activate FE
+    
+    FE->>MEM: 2. Retrieve context<br/>(session_id, message)
+    activate MEM
+    MEM->>MEM: Query 3-tier memory:<br/>Buffer + Vector + Graph
+    MEM-->>FE: 3. Return context string
+    deactivate MEM
+    
+    FE->>FE: 4. Build final prompt:<br/>Persona + Memory + Dashboard + User Message
+    
+    FE->>BE: 5. Send complete prompt
+    activate BE
+    BE->>LLM: 6. Forward to LLM
+    activate LLM
+    
+    alt LLM needs tool
+        LLM-->>BE: 7a. Tool call request
+        BE-->>FE: Return tool call
+        deactivate BE
+        
+        FE->>TOOLS: 7b. Execute tool<br/>(tool_name, params)
+        activate TOOLS
+        
+        alt Tool is RAG search
+            TOOLS->>RAG: Query knowledge base
+            activate RAG
+            RAG-->>TOOLS: Return results
+            deactivate RAG
+        end
+        
+        TOOLS-->>FE: 7c. Tool result
+        deactivate TOOLS
+        
+        FE->>BE: 7d. Continue with tool result
+        activate BE
+        BE->>LLM: Send updated history
+    end
+    
+    LLM-->>BE: 8. Stream final response
+    deactivate LLM
+    BE-->>FE: Stream to frontend
+    deactivate BE
+    
+    FE-->>U: 9. Display response
+    
+    FE->>MEM: 10. Store conversation turn<br/>(session_id, messages)
+    activate MEM
+    MEM-->>FE: 11. Confirm storage
+    deactivate MEM
+    
+    deactivate FE
+```
+
+This architecture ensures that every AI response is:
+- **Contextual**: Backed by 3-tier memory (recent messages, semantic search, knowledge graph)
+- **Informed**: Can access real-time market data, analysis tools, and RAG knowledge
+- **Persistent**: All conversations are stored for future reference and learning
+
 
 ### 🛠️ Setting Up Your AI Council
 
@@ -291,11 +433,94 @@ One of the biggest hurdles in trading is the "MQL5 tax"—the requirement to lea
 - **Rapid Prototyping**: Go from a data science experiment in a notebook to a live-running strategy in minutes.
 
 
-## 🏭 The 9-Step "Money Factory" - Deep Dive
+## 🔬 The 9-Step Analysis Pipeline: From Raw Data to Predictions
 
-This is the pipeline that finally replaced my messy notebooks. Each step transforms raw market data into actionable intelligence.
+This is where the magic happens. FinDash Buddy's analysis pipeline is a **modular, step-by-step factory** for turning raw market data into actionable predictions. Each step builds on the previous one, creating a comprehensive dataset ready for machine learning.
 
-![Data Source Selection](./Images/Screenshot%20from%202026-01-11%2011-51-44.png)
+### Pipeline Overview
+
+```mermaid
+graph LR
+    START([Start Analysis]) --> STEP1
+    
+    subgraph "Step 1: Data Source"
+        STEP1[Select Data Source<br/>MT5 or CSV]
+        STEP1 --> MT5DATA[MT5 Connection]
+        STEP1 --> CSVDATA[CSV Upload]
+        MT5DATA --> OHLCV1[OHLCV Data]
+        CSVDATA --> OHLCV1
+    end
+    
+    OHLCV1 --> STEP2
+    
+    subgraph "Step 2: Technical Analysis"
+        STEP2[Calculate Indicators<br/>50+ Indicators]
+        STEP2 --> IND[RSI, MACD, BB,<br/>SMA, EMA, etc.]
+    end
+    
+    IND --> STEP3
+    
+    subgraph "Step 3: SNR Analysis"
+        STEP3[Support & Resistance<br/>K-Means Clustering]
+        STEP3 --> SNR[SNR Zones<br/>Breakout Signals]
+    end
+    
+    SNR --> STEP4
+    
+    subgraph "Step 4: Astronomical"
+        STEP4[Cosmic Features<br/>Optional]
+        STEP4 --> ASTRO[Lunar Phases<br/>Planetary Positions]
+    end
+    
+    ASTRO --> STEP5
+    
+    subgraph "Step 5: News Sentiment"
+        STEP5[Sentiment Analysis<br/>News & Social]
+        STEP5 --> SENT[Fear/Greed Index<br/>Event Impact]
+    end
+    
+    SENT --> STEP6
+    
+    subgraph "Step 6: Feature Review"
+        STEP6[Statistical Analysis<br/>Quality Control]
+        STEP6 --> STATS[VIF, Correlation<br/>Outliers, PCA]
+    end
+    
+    STATS --> STEP7
+    
+    subgraph "Step 7: ML Preparation"
+        STEP7[Dataset Builder<br/>Sequences & Scaling]
+        STEP7 --> MLDATA[Train/Val/Test<br/>Scaled Sequences]
+    end
+    
+    MLDATA --> STEP8
+    
+    subgraph "Step 8: Model Training"
+        STEP8[Select Architecture<br/>LSTM/TCN/Transformer]
+        STEP8 --> MODEL[Trained Model<br/>Weights Saved]
+    end
+    
+    MODEL --> STEP9
+    
+    subgraph "Step 9: Results"
+        STEP9[Performance Metrics<br/>Predictions]
+        STEP9 --> RESULTS[Sharpe Ratio<br/>Win Rate<br/>Predictions]
+    end
+    
+    RESULTS --> END([Deploy Model])
+    
+    style STEP1 fill:#e3f2fd
+    style STEP2 fill:#f3e5f5
+    style STEP3 fill:#e8f5e9
+    style STEP4 fill:#fff3e0
+    style STEP5 fill:#fce4ec
+    style STEP6 fill:#e0f2f1
+    style STEP7 fill:#f1f8e9
+    style STEP8 fill:#ede7f6
+    style STEP9 fill:#e8eaf6
+```
+
+---
 
 ### **Step 1: Data Source - The Foundation**
 
@@ -938,7 +1163,96 @@ The new **Setup Wizard** guides you through:
 - View revenue splits
 - Withdraw to external wallet
 
-### ⚡ Compute Network
+---
+
+## 💳 Subscription & Billing
+
+FinDash Buddy operates on a **freemium model** with a powerful free tier and an enhanced Pro subscription.
+
+### Free Tier (Forever Free)
+- ✅ Basic dashboard metrics
+- ✅ Manual analysis tools (all 9 steps)
+- ✅ Community support
+- ✅ Limited AI queries (10/day)
+- ✅ 1 AI agent
+- ✅ Basic model training
+- ✅ Public marketplace access
+
+### Pro Tier ($10/month in BESHA)
+- ✅ **Everything in Free, plus:**
+- ✅ Unlimited AI agent conversations
+- ✅ Advanced model training (all architectures)
+- ✅ Real-time alerts and notifications
+- ✅ Priority support
+- ✅ API access
+- ✅ Custom indicators
+- ✅ Up to 5 AI agents
+- ✅ Portfolio management tools
+- ✅ Advanced risk analytics
+- ✅ Marketplace selling privileges
+
+**Payment**: Subscriptions are paid in BESHA tokens. At $1/BESHA, the monthly cost is 10 BESHA. Payment is automatic via smart contract.
+
+**Cancel Anytime**: No lock-in periods. Cancel your subscription at any time and keep access until the end of your billing period.
+
+---
+
+## 🎁 Early Adopter Rewards
+
+### Airdrop Program
+
+We reward our early supporters with BESHA token airdrops:
+
+| User Type | BESHA Reward | Eligibility |
+|-----------|--------------|-------------|
+| **First 1,000 Users** | 100 BESHA | Register before March 2026 |
+| **Beta Testers** | 250 BESHA | Active testing + bug reports |
+| **Community Leaders** | 500 BESHA | Top contributors, educators |
+| **Referral Bonus** | 50 BESHA | Per successful referral (max 10) |
+
+**Vesting**: Airdrop tokens are immediately available with no lock-up period. Use them for subscriptions, marketplace purchases, or hold for appreciation.
+
+### Mining Through Development
+
+Earn BESHA by improving the platform—we call it "mining" because you're extracting value by solving problems:
+
+#### Bug Fixes & Testing
+| Severity | BESHA Reward | Description |
+|----------|--------------|-------------|
+| **Critical** | 500 BESHA | Security vulnerabilities, data loss bugs |
+| **High** | 250 BESHA | Major functionality broken |
+| **Medium** | 100 BESHA | Feature bugs, UI issues |
+| **Low** | 50 BESHA | Minor issues, typos |
+| **Test Cases** | 25-100 BESHA | Comprehensive test coverage |
+
+#### Feature Development
+| Contribution Type | BESHA Reward | Description |
+|-------------------|--------------|-------------|
+| **Major Feature** | 2,000-5,000 BESHA | New analysis module, AI capability |
+| **Minor Feature** | 500-2,000 BESHA | UI improvements, integrations |
+| **Documentation** | 50-200 BESHA | Guides, tutorials, API docs |
+| **Code Review** | 25-100 BESHA | Quality reviews, refactoring |
+
+#### Data Contribution
+| Data Type | BESHA Reward | Description |
+|-----------|--------------|-------------|
+| **OHLCV Dataset** | 150-200 BESHA | 1 year, 15+ assets, validated |
+| **News Articles** | 20-100 BESHA | With sentiment analysis |
+| **Trading Signals** | 100-500 BESHA | With performance proof |
+| **Quality Bonus** | +50% | Exceptionally accurate/useful data |
+
+**How to Start Mining**:
+1. Join our [GitHub repository](https://github.com/yourusername/fin-dash-buddy)
+2. Browse open issues or propose new features
+3. Submit pull requests with your contributions
+4. Get reviewed and merged
+5. Receive BESHA rewards directly to your wallet
+
+**Reputation Multiplier**: Top contributors earn up to 2x rewards based on their reputation score.
+
+---
+
+## ⚡ Compute Network
 - **Rent Your GPU:** Earn tokens by providing compute power for model training
 - **Hire Compute:** Pay tokens to use others' GPUs for faster training
 - **Decentralized:** P2P network, no central server
@@ -954,6 +1268,162 @@ The new **Setup Wizard** guides you through:
 - **Share Analysis:** Publish your analysis for others
 - **Collaborate:** Work on models together
 - **Learn:** Tutorials, guides, and community support
+
+---
+
+## 🚀 Advanced Features
+
+Beyond the core analysis pipeline, FinDash Buddy includes powerful professional-grade tools for serious traders:
+
+### 📊 Stock Screener
+
+Multi-asset screening system with custom filters and preset strategies:
+
+**Features:**
+- **Multi-Asset Support**: Scan forex, stocks, crypto, commodities, and indices
+- **Custom Filters**: Price, volume, RSI, MACD, Bollinger Bands, market cap, P/E ratio
+- **Preset Strategies**:
+  - Oversold Bounce (RSI < 30, high volume)
+  - Breakout Candidates (near resistance with volume confirmation)
+  - Momentum Leaders (high momentum + relative strength)
+  - High Volatility (for options/swing trading)
+- **Watchlist Management**: Save and track screener results
+- **Background Scanning**: Automated market scans with result storage
+
+**API Endpoints:**
+- `POST /api/v1/screener/scan` - Run custom market scan
+- `GET /api/v1/screener/presets` - Get predefined strategies
+- `POST /api/v1/screener/watchlist` - Create watchlist from results
+
+---
+
+### 💼 Portfolio Management
+
+Comprehensive portfolio tracking with professional-grade risk analytics:
+
+**Risk Analysis:**
+- **Value at Risk (VaR)**: 95% and 99% confidence levels
+- **Conditional VaR (CVaR)**: Expected shortfall calculations
+- **Volatility Analysis**: Rolling standard deviation tracking
+- **Sharpe Ratio**: Risk-adjusted return metrics
+- **Maximum Drawdown**: Peak-to-trough analysis
+- **Correlation Matrix**: Asset relationship analysis
+- **Risk Alerts**: Automated warnings for threshold breaches
+
+**Performance Analytics:**
+- Total return and annualized return
+- Sharpe, Sortino, and Calmar ratios
+- Win rate and profit factor
+- Alpha and beta vs benchmark
+- Detailed trade statistics
+
+**Portfolio Rebalancing:**
+- **Equal Weight**: Maximum diversification
+- **Risk Parity**: Equal risk contribution
+- **Momentum**: Higher weights to performers
+- **Minimum Variance**: Volatility minimization
+
+**API Endpoints:**
+- `POST /api/v1/portfolio/` - Create portfolio
+- `GET /api/v1/portfolio/{id}/risk` - Analyze risk
+- `GET /api/v1/portfolio/{id}/performance` - Performance metrics
+- `POST /api/v1/portfolio/{id}/rebalance` - Get recommendations
+
+---
+
+### 🌐 Web3 & IPFS Integration
+
+Decentralized storage and blockchain interaction:
+
+**Features:**
+- **IPFS Upload/Retrieval**: Store models and data decentrally
+- **Smart Contract Interaction**: Read contract data, send transactions
+- **Job Queue System**: Asynchronous blockchain operations
+- **Wallet Management**: Multi-wallet support with challenge-response auth
+- **P2P Transfer Recording**: Track BESHA token transfers
+- **Data Contribution**: Submit data to earn BESHA rewards
+
+**API Endpoints:**
+- `POST /api/v1/web3/ipfs/upload` - Upload to IPFS
+- `GET /api/v1/web3/ipfs/retrieve/{cid}` - Retrieve from IPFS
+- `POST /api/v1/web3/transaction/send` - Send blockchain transaction
+
+---
+
+### 💰 Vendor/Withdrawal Agent System
+
+Convert BESHA tokens to local fiat currency through a network of verified agents:
+
+**For Users:**
+- Find nearby withdrawal agents
+- Request BESHA → Fiat conversions
+- Track withdrawal status
+- Rate agents based on experience
+
+**For Vendors:**
+- Apply to become a withdrawal agent
+- Process transactions and earn commissions (2-5%)
+- Build reputation through successful transactions
+- Set daily transaction limits
+
+**API Endpoints:**
+- `POST /api/v1/vendors/apply` - Apply as vendor
+- `GET /api/v1/vendors/nearby` - Find nearby agents
+- `POST /api/v1/withdrawals/request` - Request withdrawal
+
+---
+
+### ✅ Verifier/Validator System
+
+Earn BESHA by verifying transactions and resolving disputes:
+
+**Features:**
+- **Transaction Verification**: Verify user transactions for rewards
+- **Dispute Resolution**: Vote on transaction disputes
+- **Reputation System**: Build reputation through accurate verifications
+- **Leaderboard**: Top validators by accuracy and reputation
+- **Earnings Tracking**: Monitor verification rewards
+
+**Rewards:**
+- Transaction verification: 10-50 BESHA per verification
+- Dispute resolution: 20-100 BESHA per vote
+- Accuracy bonus: Up to 2x multiplier for high accuracy
+
+**API Endpoints:**
+- `GET /api/v1/verifiers/pending-tasks` - Get verification tasks
+- `POST /api/v1/verifiers/verify/{id}` - Submit verification
+- `POST /api/v1/verifiers/disputes/{id}/vote` - Vote on dispute
+
+---
+
+### 📈 Real-Time Model Updates
+
+WebSocket streams for live model predictions:
+
+**Features:**
+- Real-time prediction updates
+- Model performance tracking
+- Live accuracy metrics
+- Streaming market data integration
+
+**WebSocket Endpoint:**
+- `WS /api/v1/ws/model-updates/{user_id}` - Subscribe to updates
+
+---
+
+### 🎯 Trading Performance Tracking
+
+Sync and analyze your MT5 trading history:
+
+**Features:**
+- MT5 history synchronization
+- Win rate and profit factor calculation
+- Drawdown analysis
+- Trade statistics and patterns
+
+**API Endpoints:**
+- `POST /api/v1/trading/mt5/sync-history` - Sync MT5 trades
+- `GET /api/v1/trading/performance` - Get performance metrics
 
 ---
 
