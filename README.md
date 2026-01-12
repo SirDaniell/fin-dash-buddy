@@ -30,7 +30,7 @@ To learn more, read the full [**BESHA Introduction & Whitepaper**](./BESHA_INTRO
 
 I have spent over 10 years learning and researching for Machine learning and finance, I was that guy drowning in notebooks, CSVs, and half-baked models. One notebook for Gold, another for BTC, another for NAS100… same code, just copy-paste. I created and trained accurate models that I lost track of. Every model demanded its own environment and my laptop looked like a data crime scene.
 
-I believe in **data for evidence** with repeatable experiments/measurements,  this drove the need to have anenvironment where I would create , train and deploy this models.  
+I believe in **data for evidence** with repeatable experiments/measurements,  this drove the need to have an environment where I would create , train and deploy these models.  
 
 **"And here we are!"**
 
