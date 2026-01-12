@@ -5,7 +5,7 @@
 
 > [!CAUTION]
 > **UNDER DEVELOPMENT: Still polishing, still fixing, still building!** 🚧
-> > **This readme may change from time to time to update as I progress, The figures listed may not be thi final!** 🚧
+> **This readme may change from time to time to update as I progress, The figures listed may not be the final!**
 
 ---
 
